@@ -1,0 +1,39 @@
+# Project: MenuMatematico
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Menu_Matematico_private.res
+OBJ      = functions.o Main.o cuadratica.o $(RES)
+LINKOBJ  = functions.o Main.o cuadratica.o $(RES)
+LIBS     = -L"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+INCS     = -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/include" -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files/Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = "Menu Matematico.exe"
+CXXFLAGS = $(CXXINCS) -m32
+CFLAGS   = $(INCS) -m32
+DEL      = C:\Program Files\Embarcadero_Dev-Cpp_6.3_TDM-GCC_9.2_Portable\devcpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+functions.o: functions.cpp
+	$(CPP) -c functions.cpp -o functions.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
+
+cuadratica.o: cuadratica.cpp
+	$(CPP) -c cuadratica.cpp -o cuadratica.o $(CXXFLAGS)
+
+Menu_Matematico_private.res: Menu_Matematico_private.rc recurso.rc
+	$(WINDRES) -i Menu_Matematico_private.rc -F pe-i386 --input-format=rc -o Menu_Matematico_private.res -O coff 
+
