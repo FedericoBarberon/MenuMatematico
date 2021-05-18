@@ -5,10 +5,14 @@ using namespace std;
 
 void inicio();
 void funcion(int);
+void consola_tamanio();
+
+HANDLE wHnd;
 
 int main(){
 	system("color F0");
 	
+	consola_tamanio();
 	inicio();
 	
 	return 0;
@@ -19,7 +23,7 @@ void inicio(){
 	system("cls");
 	int opc;
 	
-	cout<<"Menu Matematico\n\n";
+	cout<<"\t\t\tMenu Matematico\n\n";
 	
 	cout<<"1. Sumar o Restar\n";
 	cout<<"2. Multiplicar o Dividir\n";
@@ -35,4 +39,10 @@ void inicio(){
 	cin>>opc;
 	
 	funcion(opc);
+}
+
+void consola_tamanio(){
+	wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
+    SMALL_RECT windowSize = {0, 0, 60,15}; //tercer valor = ancho - cuarto valor = alto
+    SetConsoleWindowInfo(wHnd, 1, &windowSize);
 }
