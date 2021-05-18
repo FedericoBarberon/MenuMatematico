@@ -19,8 +19,10 @@ Funciones.
 
 6. Funcion cuadratica ( Forma: Polinomica - Factorizada - Canonica ) Beta.
 
-7. Distancia entre 2 puntos.
+7. Factorial.
 
-8. Factorial.
+8. Distancia entre 2 puntos.
+
+
 
 
